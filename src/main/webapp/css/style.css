@@ -1,0 +1,224 @@
+/* ===== Campus Lost & Found — Varsity / School theme ===== */
+:root{
+  --navy:#0b2559; --navy-deep:#071a40; --gold:#e8b11a; --gold-soft:#f6e3a1;
+  --crimson:#8c1d2f; --green:#2f7d4f; --cream:#fbf7ee; --paper:#fffdf8;
+  --line:#e6dcc3; --text:#1d2433; --muted:#6b6a63;
+  --serif:Georgia,"Times New Roman",serif; --sans:"Segoe UI",Roboto,Arial,sans-serif;
+}
+*{box-sizing:border-box}
+body{
+  margin:0; min-height:100vh; display:flex; flex-direction:column;
+  font-family:var(--sans); color:var(--text); background-color:var(--cream);
+  /* graph-paper notebook background */
+  background-image:
+    linear-gradient(rgba(11,37,89,.05) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(11,37,89,.05) 1px,transparent 1px);
+  background-size:28px 28px;
+}
+
+/* ---------- School banner ---------- */
+.site-header{
+  position:relative; text-align:center; color:#fff; padding:30px 12px 34px;
+  background:linear-gradient(180deg,var(--navy-deep),var(--navy));
+  border-bottom:6px solid var(--gold);
+}
+.site-header::before{
+  content:"★  ★  ★"; display:block; color:var(--gold); letter-spacing:8px;
+  font-size:.8rem; margin-bottom:6px;
+}
+.site-header::after{ /* stitched varsity line */
+  content:""; position:absolute; left:0; right:0; bottom:6px; height:0;
+  border-bottom:2px dashed rgba(246,227,161,.55);
+}
+.site-header h1{
+  margin:0; font-family:var(--serif); font-size:2.5rem; letter-spacing:2px;
+  text-shadow:0 2px 0 rgba(0,0,0,.35);
+}
+.site-header h1::before{content:"🏫 "}
+
+/* ---------- Navigation ---------- */
+.navbar{
+  background:var(--navy-deep); display:flex; justify-content:space-between;
+  align-items:center; flex-wrap:wrap; padding:0 36px;
+  border-bottom:3px solid var(--crimson); box-shadow:0 4px 12px rgba(0,0,0,.18);
+}
+.navbar .brand{
+  color:var(--gold); font-family:var(--serif); font-weight:bold; font-size:1.6rem; padding:14px 0;
+}
+.navbar .brand::before{content:"🎓 "}
+.navbar .brand small{
+  font-family:var(--sans); font-size:.7rem; letter-spacing:1px; text-transform:uppercase;
+  color:#fff; background:var(--crimson); border-radius:20px; padding:3px 10px; vertical-align:middle;
+}
+.navbar ul{list-style:none; margin:0; padding:0; display:flex; gap:4px; flex-wrap:wrap}
+.navbar a{
+  display:block; color:#e9edf7; text-decoration:none; font-weight:600; font-size:.95rem;
+  padding:10px 16px; border-radius:20px; transition:.2s;
+}
+.navbar a:hover{background:rgba(255,255,255,.1); color:var(--gold)}
+.navbar a.active{background:var(--gold); color:var(--navy-deep); box-shadow:0 2px 0 #b98a0c}
+.navbar a.logout{color:#ffb3b3}
+.navbar a.logout:hover{background:var(--crimson); color:#fff}
+
+/* ---------- Layout ---------- */
+main{flex:1; padding:34px 16px; background:transparent}
+.container{max-width:520px; margin:0 auto}
+.container.wide{max-width:1150px}
+
+/* ---------- Cards (like paper / folder) ---------- */
+.card{
+  background:var(--paper); border:1px solid var(--line); border-top:6px solid var(--gold);
+  border-radius:14px; padding:30px 36px; margin-bottom:26px;
+  box-shadow:0 10px 26px rgba(11,37,89,.10);
+}
+.card h2{
+  font-family:var(--serif); color:var(--navy); margin:0 0 18px; font-size:1.9rem; position:relative; padding-bottom:12px;
+}
+.card h2::after{
+  content:""; position:absolute; left:0; bottom:0; width:70px; height:4px; border-radius:3px;
+  background:linear-gradient(90deg,var(--gold),var(--crimson));
+}
+.card h2.center::after{left:50%; transform:translateX(-50%)}
+.card h3{font-family:var(--serif); color:var(--navy); margin:26px 0 12px}
+.center{text-align:center}
+.icon{text-align:center; font-size:3.6rem; margin-top:4px}
+.form-card{max-width:700px}
+
+/* ---------- Welcome page: student ID-card portals ---------- */
+.welcome{
+  background:var(--paper); border:1px solid var(--line); border-top:6px solid var(--gold);
+  border-radius:16px; padding:36px 20px 56px; text-align:center;
+  box-shadow:0 10px 26px rgba(11,37,89,.10);
+}
+.welcome h2{font-family:var(--serif); color:var(--navy); font-size:3.3rem; margin:10px 0 6px}
+.welcome h2::after{display:none}
+.sub{color:var(--muted); font-family:var(--serif); font-style:italic; font-size:1.1rem}
+.sub.left{margin:-8px 0 0}
+.portal-grid{display:flex; gap:50px; justify-content:center; flex-wrap:wrap; margin-top:44px}
+.portal-card{
+  position:relative; width:300px; padding:56px 20px 36px; background:#fff;
+  border:2px solid var(--navy); border-radius:18px; transition:.25s;
+  box-shadow:0 8px 0 var(--navy-deep);
+}
+.portal-card::before{ /* lanyard slot */
+  content:""; position:absolute; top:16px; left:50%; transform:translateX(-50%);
+  width:60px; height:11px; border-radius:8px; background:var(--cream); border:2px solid var(--navy);
+}
+.portal-card:nth-child(2){border-color:var(--crimson); box-shadow:0 8px 0 #5e1220}
+.portal-card:nth-child(2)::before{border-color:var(--crimson)}
+.portal-card:hover{transform:translateY(-6px)}
+.portal-card .icon{font-size:4rem}
+.portal-card h3{font-size:1.8rem; margin:8px 0 0}
+
+/* ---------- Login card ---------- */
+.login-card{position:relative; margin-top:10px; padding-top:44px; border-radius:18px}
+.login-card::before{
+  content:""; position:absolute; top:14px; left:50%; transform:translateX(-50%);
+  width:60px; height:11px; border-radius:8px; background:var(--cream); border:2px solid var(--navy);
+}
+.back{
+  display:block; text-align:center; color:var(--navy); font-family:var(--serif); font-weight:bold;
+  text-decoration:none; margin-top:6px;
+}
+.back:hover{color:var(--crimson); text-decoration:underline}
+
+/* ---------- Forms ---------- */
+label{
+  display:block; margin:16px 0 6px; font-weight:700; color:var(--navy); font-size:.92rem;
+  text-transform:uppercase; letter-spacing:.6px;
+}
+input,select,textarea{
+  width:100%; padding:14px 15px; font-size:1rem; font-family:inherit; color:var(--text);
+  background:#fff; border:2px solid #d9cfb4; border-radius:10px; transition:.2s;
+}
+input::placeholder,textarea::placeholder{color:#a8a396}
+input:focus,select:focus,textarea:focus{
+  outline:none; border-color:var(--navy); box-shadow:0 0 0 4px rgba(232,177,26,.35);
+}
+
+/* ---------- Buttons ---------- */
+.btn{
+  display:inline-block; margin-top:22px; padding:13px 30px; border:0; border-radius:10px;
+  background:linear-gradient(180deg,#f3c53d,var(--gold)); color:var(--navy-deep);
+  font-family:var(--sans); font-weight:800; font-size:.95rem; letter-spacing:1px; text-transform:uppercase;
+  text-decoration:none; cursor:pointer; box-shadow:0 4px 0 #b98a0c; transition:.15s;
+}
+.btn:hover{transform:translateY(-2px); box-shadow:0 6px 0 #b98a0c}
+.btn:active{transform:translateY(2px); box-shadow:0 1px 0 #b98a0c}
+.btn.block{display:block; width:100%; text-align:center; margin-bottom:14px}
+.btn.sm{padding:7px 14px; font-size:.75rem; margin:2px; border-radius:8px; box-shadow:0 3px 0 #b98a0c}
+.btn.green{background:var(--green); color:#fff; box-shadow:0 3px 0 #1e5535}
+.btn.red{background:var(--crimson); color:#fff; box-shadow:0 3px 0 #5e1220}
+.btn.gray{background:#8b8f99; color:#fff; box-shadow:0 3px 0 #5f636c}
+
+/* ---------- Alerts ---------- */
+.alert{padding:13px 16px; border-radius:10px; margin-bottom:18px; font-weight:600; border-left:6px solid}
+.alert.success{background:#e7f5ec; color:#1c6b35; border-color:var(--green)}
+.alert.error{background:#fbe9ec; color:#8c1d2f; border-color:var(--crimson)}
+
+/* ---------- Dashboard stat tiles (folder tabs) ---------- */
+.stats{display:grid; grid-template-columns:repeat(auto-fit,minmax(160px,1fr)); gap:16px; margin:22px 0 30px}
+.stat{
+  background:var(--navy); color:#fff; border-radius:12px; padding:20px 16px; text-align:center;
+  border-top:5px solid var(--gold); box-shadow:0 6px 14px rgba(11,37,89,.18);
+}
+.stat:nth-child(2n){background:#143a82}
+.stat:nth-child(3n){background:var(--crimson); border-top-color:var(--gold-soft)}
+.stat:nth-child(4n){background:#1d5c3d}
+.stat b{display:block; font-family:var(--serif); font-size:2.4rem; color:var(--gold)}
+.stat span{font-size:.85rem; letter-spacing:.8px; text-transform:uppercase; opacity:.92}
+
+/* ---------- Tables (notebook style) ---------- */
+.table-wrap{overflow-x:auto; border:1px solid var(--line); border-radius:12px}
+table{width:100%; border-collapse:collapse; font-size:.94rem; background:#fff}
+th{
+  background:var(--navy); color:var(--gold-soft); text-align:left; padding:13px 12px;
+  font-size:.8rem; text-transform:uppercase; letter-spacing:.8px; border-bottom:3px solid var(--gold);
+}
+td{padding:12px; border-bottom:1px solid #efe7d2; vertical-align:top}
+tr:nth-child(even) td{background:#fdfaf1}
+tr:hover td{background:#fff3cf}
+td.empty{text-align:center; color:var(--muted); font-style:italic; padding:28px}
+td.actions{white-space:nowrap}
+td.actions form{display:inline}
+small{color:var(--muted)}
+
+/* ---------- Badges ---------- */
+.badge{
+  display:inline-block; padding:3px 11px; border-radius:6px; font-size:.72rem; font-weight:800;
+  text-transform:uppercase; letter-spacing:.6px; border:1px solid transparent;
+}
+.badge.lost,.badge.rejected{background:#fbe9ec; color:var(--crimson); border-color:#efc1c8}
+.badge.found,.badge.approved,.badge.available{background:#e7f5ec; color:#1c6b35; border-color:#b9dfc6}
+.badge.pending{background:#fff3cf; color:#8a5a00; border-color:#f0d88a}
+.badge.claimed{background:#e4eaf9; color:#1d3c8a; border-color:#bccaee}
+.badge.student{background:#e4eaf9; color:#1d3c8a; border-color:#bccaee}
+.badge.admin{background:#f3e5f7; color:#6a1d8a; border-color:#dcb9e8}
+
+/* ---------- Filters & tabs ---------- */
+.filters{display:flex; gap:10px; flex-wrap:wrap; margin-bottom:18px}
+.filters input{flex:2; min-width:200px}
+.filters select{flex:1; min-width:120px}
+.filters .btn{margin-top:0; padding:12px 26px}
+.tabs{display:flex; gap:8px; flex-wrap:wrap; margin-bottom:18px}
+.tabs a{
+  padding:8px 20px; border-radius:20px; background:#fff; color:var(--navy); font-weight:700;
+  text-decoration:none; border:2px solid var(--line); transition:.2s;
+}
+.tabs a:hover{border-color:var(--gold)}
+.tabs a.on{background:var(--navy); color:var(--gold); border-color:var(--navy)}
+
+/* ---------- Footer ---------- */
+.site-footer{
+  text-align:center; padding:22px; color:var(--gold-soft); font-family:var(--serif);
+  background:var(--navy-deep); border-top:4px solid var(--gold); letter-spacing:.5px;
+}
+
+/* ---------- Mobile ---------- */
+@media(max-width:700px){
+  .site-header h1{font-size:1.5rem}
+  .navbar{padding:0 10px; justify-content:center}
+  .card{padding:22px 18px}
+  .welcome h2{font-size:2.3rem}
+  .portal-grid{gap:34px}
+}
